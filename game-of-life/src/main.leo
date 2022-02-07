@@ -56,8 +56,12 @@ circuit GameOfLife {
     }
 }
 
-function main(grid: [u8; (5, 5)]) -> [u8; (5, 5)] {
-
+function main(grid: [u8; (5, 5)], const steps: u32) -> [u8; (5, 5)] {
     let game: GameOfLife = GameOfLife::new(grid);
-    return game.next_generation();
+    let next_grid: [u8; (5, 5)] = [0u8;(5,5)];
+    for i in 0..steps{
+        next_grid = game.next_generation();
+    }
+    
+    return next_grid;
 }
