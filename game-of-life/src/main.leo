@@ -1,5 +1,12 @@
 // The 'game-of-life' main function.
 circuit GameOfLife {
+
+    //Grid needs to be surrounded by a frame
+    //So the actual dimensions are the numbers - 2 in each dimension
+    
+    //This is like that because leo tries to generate the circuit as if
+    //it needs to access -1 position, even with an if, which results in an 
+    //out of bond error
     grid: [u8; (5, 5)],
 
     function new(grid: [u8; (5, 5)]) -> Self { 
@@ -9,14 +16,16 @@ circuit GameOfLife {
     function next_generation (self) -> [u8; (5, 5)] {
         let next_grid: [u8; (5, 5)] = [0;(5,5)];
 
-        for i in 0..5 {
-            for j in 0..5 {
+        for i in 1..4 {
+            for j in 1..4 {
                 let alive_neighbours: u8 = 0;
                 for u in 0..3 {
                     for v in 0..3 {
-                        if ((i-1+u >= 0) && (j-1+v >= 0) && (i-1+u < 5) && (j-1+v < 5)) {
-                            console.log("[{},{}]",i-1+u,j-1+v);
-                            alive_neighbours += self.grid[i-1+u][j-1+v];
+                        let x: u32 = i+u-1;
+                        let y: u32 = j+v-1;
+                        if (x > 3) && (y > 3) && (x < 1) && (y < 1) {
+                            console.log("[{},{}]",x,y);
+                            alive_neighbours += self.grid[x][y];
                         } 
                     }
                 }
