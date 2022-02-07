@@ -13,7 +13,7 @@ circuit GameOfLife {
         return Self { grid: grid };
     }
 
-    function next_generation (self) -> [u8; (5, 5)] {
+    function next_generation (mut self) -> [u8; (5, 5)] {
         let next_grid: [u8; (5, 5)] = [0;(5,5)];
 
         for i in 1..4 {
@@ -29,8 +29,28 @@ circuit GameOfLife {
                     }
                 }
                 console.log("[{},{}] alive: {}",i,j,alive_neighbours);
+
+                if self.grid[i][j] == 1 {
+                    if alive_neighbours < 2 || alive_neighbours > 3{
+                        next_grid[i][j] = 0;
+                    }
+                    else {
+                        next_grid[i][j] = 1;
+                    }
+                }
+
+                if self.grid[i][j] == 0 {
+                    if alive_neighbours == 3 {
+                        next_grid[i][j] = 1;
+                    }
+                    else {
+                        next_grid[i][j] = 0;
+                    }
+                }
             }
         }
+
+        self.grid = next_grid;
 
         return self.grid;
     }
