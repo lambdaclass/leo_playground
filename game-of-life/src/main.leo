@@ -23,12 +23,12 @@ circuit GameOfLife {
                     for v in 0..3 {
                         let x: u32 = i+u-1;
                         let y: u32 = j+v-1;
-                        if (x > 1) && (y > 1) && (x < 3) && (y < 3) {    
-                            console.log("[{},{}]",x,y);
+                        if (x > 0) && (y > 0) && (x < 4) && (y < 4) && (u != 1 || v != 1){    
                             alive_neighbours += self.grid[x][y];
                         }
                     }
                 }
+                console.log("[{},{}] alive: {}",i,j,alive_neighbours);
             }
         }
 
