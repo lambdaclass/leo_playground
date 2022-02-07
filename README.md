@@ -1,1 +1,3 @@
-# leo_playground
+# Leo playground
+
+leo example applications
