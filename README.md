@@ -2,7 +2,7 @@
 
 Leo example applications
 
-To excute this repo you need to instanciate the nix shell by running:
+To excute this repo you need to instantiate the nix shell by running:
 ```
 nix-shell
 ```
