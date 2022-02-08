@@ -1,8 +1,0 @@
-[project]
-name = "game-of-life"
-version = "0.1.0"
-description = "The game-of-life package"
-license = "MIT"
-
-[remote]
-author = "[AUTHOR]" # Add your Aleo Package Manager username or team name.
