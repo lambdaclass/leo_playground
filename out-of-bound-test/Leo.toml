@@ -1,0 +1,8 @@
+[project]
+name = "out-of-bound-test"
+version = "0.1.0"
+description = "The out-of-bound-test package"
+license = "MIT"
+
+[remote]
+author = "[AUTHOR]" # Add your Aleo Package Manager username or team name.
