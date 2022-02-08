@@ -1,5 +1,7 @@
 // The 'math' main function.
-function main(a: u32, b: u32) -> u32 {
-    let c: u32 = a + b;
-    return c;
+
+import math.(Math);
+
+function main(a: field) -> field {
+    return Math::fi_sqrt(a);
 }
