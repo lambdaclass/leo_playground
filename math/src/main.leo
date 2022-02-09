@@ -2,6 +2,8 @@
 
 import math.(Math);
 
-function main(a: field) -> field {
-    return Math::fi_sqrt(a);
+//Division: 82364 constraints
+//Check division: 
+function main(a: u64, b: u64, c: u64) -> bool {
+    return;
 }
