@@ -5,7 +5,7 @@ circuit Math{
     function sqrt_bab(a: u64) -> u64{
         let initial_guess: u64 = 1 + a/2;
         let x: u64 = initial_guess;
-        for i in 0..6 {
+        for i in 0..20 {
             x = (x+a/x)/2;
         }
         return x; 
@@ -14,19 +14,19 @@ circuit Math{
     function sqrt_bakshali(s: u64) -> u64{
         let initial_guess: u64 = 1 + s/2;
         let x: u64 = initial_guess;
-        for i in 0..3 {
+        for i in 0..8 {
             let a = (s-x*x)/(2*x);
             let b = x + a;
-            x = b - a*a/2*b;
+            x = b - (a*a)/(2*b);
         }
         return x; 
     }
 
     //We want to check if sqrt(x) = hint, and since we have integers,
     //we add a range
-    function verify_sqrt(x: u64, hint: u64, const decimals: u64) -> bool{
+    function verify_sqrt(x: u64, hint: u64) -> bool{
         let expected_value: u64 = (hint*hint);
-        return ((expected_value - decimals) < x) && (x < (expected_value + decimals)) ;
+        return expected_value == hint ;
     }
 
     //We want to check if x / y = hint
