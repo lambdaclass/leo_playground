@@ -21,4 +21,16 @@ circuit Math{
         }
         return x; 
     }
+
+    //We want to check if sqrt(x) = hint, and since we have integers,
+    //we add a range
+    function verify_sqrt(x: u64, hint: u64, const decimals: u64) -> bool{
+        let expected_value: u64 = (hint*hint);
+        return ((expected_value - decimals) < x) && (x < (expected_value + decimals)) ;
+    }
+
+    //We want to check if x / y = hint
+    function verify_division(x:u64, y:u64, hint: u64) -> bool{
+        return (hint*y) == x;
+    }
 }
