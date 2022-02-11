@@ -1,7 +1,7 @@
 // The 'math' main function.
 
 import math.(Math);
-
+import hash.(Hash);
 //Division: 82364 constraints
 //Check division: 
 function main() -> bool {
@@ -18,8 +18,7 @@ function main() -> bool {
     let b: field = 0 - 1;
     console.log("10field: {}", a);
     console.log("10field + p: {}", a + b);
-    console.log("mimc 10field: {}", Math::mimc(b));
-    console.log("mimc7 10field: {}", Math::mimc7(b));
+    console.log("mimc 10field: {}", Hash::mimc(b));
 
     return true;
 }
