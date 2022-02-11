@@ -15,9 +15,7 @@ function main() -> bool {
     console.log("Is sqrt(800000)=1000 ? {}", Math::verify_division(800000,2,5));
 
     let a = 10field;  
-    let b: field = 0 - 1;
     console.log("10field: {}", a);
-    console.log("10field + p: {}", a + b);
     console.log("mimc 10field: {}", Hash::mimc(b));
 
     return true;
