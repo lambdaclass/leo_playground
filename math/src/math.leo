@@ -33,4 +33,20 @@ circuit Math{
     function verify_division(x:u64, y:u64, hint: u64) -> bool{
         return (hint*y) == x;
     }
+
+    function mimc(x:field) -> field{
+        const secret_key: field = 1337;
+        for i in 0..220{
+            x = x*x*x + secret_key;
+        }
+        return x;
+    }
+
+    function mimc7(x:field) -> field{
+        const secret_key: field = 1337;
+        for i in 0..220{
+            x = x*x*x*x*x*x*x + secret_key;
+        }
+        return x;
+    }
 }
