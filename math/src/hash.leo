@@ -1,7 +1,6 @@
 circuit Hash {
 
     function mimc(x:field, secret_key:field) -> field{
-        //This should be an array of constants
         const constant: [field;220] =
             [
                 0,
